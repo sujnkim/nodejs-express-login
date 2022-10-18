@@ -3,7 +3,6 @@ const router = express.Router();
 
 const User = require("../model/User");
 
-const registerController = require("../controller/registerController");
 const authController = require("../controller/authController");
 const logoutController = require("../controller/logoutController");
 const authMiddleware = require("../middleware/authMiddleware");
@@ -12,9 +11,6 @@ const authMiddleware = require("../middleware/authMiddleware");
 router.get("/", (req, res) => {
   res.send("test");
 });
-
-//회원가입
-router.post("/new", registerController.handleNewUser);
 
 //로그인
 router.post("/login", authController.handleLogin);

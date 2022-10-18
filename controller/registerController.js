@@ -10,12 +10,6 @@ const handleNewUser = async (req, res) => {
       .json({ message: "Email, Username and password are required." });
   }
 
-  //해당 이메일의 유저가 이미 존재하는지 확인
-  const duplicate = await User.findOne({ email: mail }).exec();
-  if (duplicate) {
-    return res.status(409).json({ message: `Email ${mail} is already exist.` }); //Conflict
-  }
-
   try {
     //password encryption
     const hashedPwd = await bcrypt.hash(pwd, 10);
@@ -28,8 +22,7 @@ const handleNewUser = async (req, res) => {
     });
 
     console.log(newUser);
-
-    res.status(200).json({ success: `true/ New user ${mail} created.` });
+    res.status(200).json({ success: true });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

@@ -34,6 +34,9 @@ app.use(cookeParser());
 //root page 라우터
 app.use("/", require("./routes/root"));
 
+//회원가입 관련 라우터
+app.use("/new", require("./routes/register"));
+
 //user정보 관련 라우터
 app.use("/users", require("./routes/users"));
 
