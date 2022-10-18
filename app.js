@@ -37,6 +37,10 @@ app.use("/", require("./routes/root"));
 //회원가입 관련 라우터
 app.use("/new", require("./routes/register"));
 
+//로그인, 로그아웃
+app.use("/login", require("./routes/login"));
+app.use("/logout", require("./routes/logout"));
+
 //user정보 관련 라우터
 app.use("/users", require("./routes/users"));
 
