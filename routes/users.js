@@ -3,20 +3,12 @@ const router = express.Router();
 
 const User = require("../model/User");
 
-const authController = require("../controller/authController");
-const logoutController = require("../controller/logoutController");
 const authMiddleware = require("../middleware/authMiddleware");
 
 //for test
 router.get("/", (req, res) => {
   res.send("test");
 });
-
-//로그인
-router.post("/login", authController.handleLogin);
-
-//로그아웃
-router.get("/logout", logoutController.handleLogout);
 
 //특정 유저 정보
 router.get("/mypage", authMiddleware, async (req, res) => {
