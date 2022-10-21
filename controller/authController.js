@@ -52,7 +52,7 @@ const handleLogin = async (req, res) => {
       //secure:"true",
       maxAge: 24 * 60 * 60 * 1000, //24hours
     });
-    res.json({ accessToken });
+    res.json({ name: foundUser.username, accessToken });
   } else {
     //Unauthorized: wrong password
     res.status(401).json({ message: "Wrong password." });
